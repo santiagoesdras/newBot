@@ -1,15 +1,17 @@
 require("dotenv").config();
 
 const Discord = require("discord.js");
-const client = new Discord.Client({});
+const intents = new Discord.Intents(32767);
+const client = new Discord.Client({intents});
 
-const { readdirSync } = require("fs");
+const fs = require("fs");
 
 const keepAlive = require("./utils/server.js");
 
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith ('.js'));
+const commandFiles = console.log(fs.readdirSync('./commands').filter(file => file.endsWith ('.js')));
+
 
 for (const file of commandFiles){
     
